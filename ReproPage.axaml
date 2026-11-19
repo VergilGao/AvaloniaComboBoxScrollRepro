@@ -1,0 +1,100 @@
+<UserControl
+    x:Class="AvaloniaComboBoxScrollRepro.ReproPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid RowDefinitions="Auto,*">
+        <Border
+            Padding="20,16"
+            Background="#FFF6E5"
+            BorderBrush="#E7C575"
+            BorderThickness="0,0,0,1">
+            <StackPanel Spacing="4">
+                <TextBlock
+                    x:Name="PageTitle"
+                    FontSize="18"
+                    FontWeight="SemiBold" />
+                <TextBlock
+                    Foreground="#6B4F00"
+                    Text="先把页面滚到底部，再打开下拉框。观察右侧滚动条位置和下拉框是否仍贴在输入框上。" 
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    x:Name="OffsetText"
+                    FontFamily="Consolas"
+                    Foreground="#6B4F00" />
+            </StackPanel>
+        </Border>
+
+        <ScrollViewer
+            x:Name="PageScroll"
+            Grid.Row="1"
+            ScrollChanged="OnPageScrollChanged">
+            <StackPanel
+                x:Name="ContentRoot"
+                Margin="24"
+                Spacing="16">
+                <TextBlock
+                    FontSize="24"
+                    FontWeight="SemiBold"
+                    Text="滚动页面示例" />
+                <TextBlock
+                    Foreground="#666666"
+                    Text="以下区块用于制造足够长的滚动内容。最后一段中的 ComboBox 已选中第一项。"
+                    TextWrapping="Wrap" />
+
+                <Border
+                    Height="130"
+                    Padding="16"
+                    Background="#F4F5F7"
+                    CornerRadius="8">
+                    <TextBlock Text="区块 01" />
+                </Border>
+                <Border
+                    Height="130"
+                    Padding="16"
+                    Background="#F4F5F7"
+                    CornerRadius="8">
+                    <TextBlock Text="区块 02" />
+                </Border>
+                <Border
+                    Height="130"
+                    Padding="16"
+                    Background="#F4F5F7"
+                    CornerRadius="8">
+                    <TextBlock Text="区块 03" />
+                </Border>
+                <Border
+                    Height="130"
+                    Padding="16"
+                    Background="#F4F5F7"
+                    CornerRadius="8">
+                    <TextBlock Text="区块 04" />
+                </Border>
+
+                <Border
+                    Padding="20"
+                    Background="#EEF5FF"
+                    BorderBrush="#B6CFF2"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                    <StackPanel Spacing="12">
+                        <TextBlock
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Text="页面底部的 ComboBox" />
+                        <TextBlock
+                            Foreground="#555555"
+                            Text="两页都启用了 Overlay Popup；问题页会回卷，修复页会保持当前滚动偏移。"
+                            TextWrapping="Wrap" />
+                        <ComboBox
+                            Width="180"
+                            HorizontalAlignment="Left"
+                            SelectedIndex="0">
+                            <ComboBoxItem Content="简体中文" />
+                            <ComboBoxItem Content="English" />
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

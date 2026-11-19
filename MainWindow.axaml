@@ -1,0 +1,19 @@
+<Window
+    x:Class="AvaloniaComboBoxScrollRepro.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AvaloniaComboBoxScrollRepro"
+    Width="1000"
+    Height="720"
+    MinWidth="760"
+    MinHeight="520"
+    Title="Avalonia ComboBox Scroll Repro">
+    <TabControl>
+        <TabItem Header="问题页">
+            <local:ReproPage x:Name="ProblemPage" />
+        </TabItem>
+        <TabItem Header="修复页">
+            <local:ReproPage x:Name="FixedPage" />
+        </TabItem>
+    </TabControl>
+</Window>

@@ -1,0 +1,17 @@
+<Application
+    x:Class="AvaloniaComboBoxScrollRepro.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    RequestedThemeVariant="Light">
+    <Application.Styles>
+        <FluentTheme />
+        <!--
+            仅此项即可在真实 Desktop 平台复现页面回卷。
+            PlacementConstraintAdjustment、PopupRoot.ClipToBounds 和
+            ComboBox.ClipToBounds 均已排除。
+        -->
+        <Style Selector="Popup">
+            <Setter Property="ShouldUseOverlayLayer" Value="True" />
+        </Style>
+    </Application.Styles>
+</Application>
